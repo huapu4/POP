@@ -29,6 +29,10 @@
 - 🌐 **Official Website**: https://pop.gzzoc.org.cn/
 - 🎥 **Video Demo**:
 
+https://github.com/user-attachments/assets/bf3ab7a0-c3e7-4f7f-ad94-f38645a913c3
+
+
+
 ### 1.2 About This Project
 
 This project is a lightweight Python library for calling the Pocket Ophthalmologist (POP) detection API. Through simple API calls, you can upload images and obtain detailed detection results, including target labels, confidence scores, bounding box coordinates, and more.
