@@ -29,8 +29,8 @@
 - 🌐 **Official Website**: https://pop.gzzoc.org.cn/
 - 🎥 **Video Demo**:
 
-https://github.com/user-attachments/assets/bf3ab7a0-c3e7-4f7f-ad94-f38645a913c3
 
+https://github.com/user-attachments/assets/378fd48f-a712-4008-ba3d-144f7476dc01
 
 
 ### 1.2 About This Project
@@ -46,12 +46,13 @@ This project is particularly suitable for:
 
 ## 2. Features
 
-| Feature                      | Description                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------ |
-| 📸**Image Upload**     | Support uploading image files for detection                                          |
-| 🔍**Detailed Results** | Returns complete information including bounding boxes, labels, and confidence scores |
-| 🛡️**Error Handling** | Comprehensive exception handling and error prompts                                   |
-| 🔄**Interactive Use**  | Support cyclic input of multiple images for detection                                |
+| Feature                        | Description                                                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
+| 📸**Image Upload**       | Support uploading image files for detection                                          |
+| 🔍**Detailed Results**   | Returns complete information including bounding boxes, labels, and confidence scores |
+| 🖼️**Image Annotation** | Automatically annotates detected targets on images with bounding boxes and labels    |
+| 🛡️**Error Handling**   | Comprehensive exception handling and error prompts                                   |
+| 🔄**Interactive Use**    | Support cyclic input of multiple images for detection                                |
 
 ## 3. Installation
 
@@ -81,76 +82,64 @@ pip install -r requirements.txt
 
 ## 4. Quick Start
 
-### 4.1 Configure Pocket Ophthalmologist (POP) Image Detection API Address
-
-**Step 1: Create configuration file**
-
-```bash
-# Copy configuration template
-cp config.example.py config.py
-```
-
-**Step 2: Edit configuration file**
-
-Open the `config.py` file and replace `API_URL` with the actual Pocket Ophthalmologist (POP) image detection API address:
-
-```python
-API_URL = "Pocket Ophthalmologist (POP) Image Detection API Address"
-```
-
-### 4.2 Interactive Usage
+### 4.1 Interactive Usage
 
 After running the program, enter the image path as prompted:
 
 ```bash
-python main.py
+python run.py
 ```
 
 **Usage Example:**
 
 ```
 ============================================================
-POP口袋眼科医生图像检测工具
+Pocket Ophthalmologist (POP) Tool
 ============================================================
 
-请输入要检测的图片路径（输入 'q' 或 'quit' 退出）: test.jpg
+Please enter image path to detect (enter 'q' or 'quit' to exit): test.jpg
 
-正在检测图片: test.jpg
+Detecting image: test.jpg
 ------------------------------------------------------------
 
 ==================================================
-检测结果
+Detection Results
 ==================================================
 
-检测到 3 个目标:
+Detected 3 target(s):
 
-目标 1:
-  标签: 目标眼
-  置信度: 0.9468135
-  位置: left=12, top=11, right=1277, bottom=729
+Target 1:
+  Label: Eye
+  Confidence: 0.9468135
+  Position: left=12, top=11, right=1277, bottom=729
 
-目标 2:
-  标签: 白内障
-  置信度: 0.82525355
-  位置: left=719, top=296, right=829, bottom=413
+Target 2:
+  Label: Cataract
+  Confidence: 0.82525355
+  Position: left=719, top=296, right=829, bottom=413
 
-目标 3:
-  标签: 翼状胬肉
-  置信度: 0.79924196
-  位置: left=167, top=284, right=642, bottom=639
+Target 3:
+  Label: Pterygium
+  Confidence: 0.79924196
+  Position: left=167, top=284, right=642, bottom=639
 
 ==================================================
 
-请输入要检测的图片路径（输入 'q' 或 'quit' 退出）: q
+✓ Annotated image saved to: output/test_annotated_20260114_123456.jpg
 
-感谢使用，再见！
+Please enter image path to detect (enter 'q' or 'quit' to exit): q
+
+Thank you for using, goodbye!
 
 ```
+![test_annotated](https://github.com/user-attachments/assets/d4dd6b26-4c76-4391-abfe-db688e4fe7f7)
 
-### 4.3 Feature Description
+### 4.2 Feature Description
 
 - ✅ **Interactive Detection**: After running the program, you can cyclically input multiple image paths for detection
-- ✅ **Formatted Output**: Detection results are displayed in a clear format on the console
+- ✅ **Formatted Output**: Detection results are displayed in English with clear format on the console
+- ✅ **Image Annotation**: Automatically annotates detected targets on images with bounding boxes and labels, saves to `output/` folder
+- ✅ **Label Translation**: Chinese labels are automatically translated to English in console output
 - ✅ **Error Handling**: Automatically checks if files exist and if formats are supported
 
 ---
@@ -159,22 +148,38 @@ POP口袋眼科医生图像检测工具
 
 ```
 .
-├── main.py                    # Main program file (includes interactive functionality)
-├── config.py                 # API configuration file (needs to be created)
-├── config.example.py         # Configuration file template
-├── requirements.txt           # Dependency package list
-├── README.md                 # Project documentation (this file)
+├── run.py                    # Entry point (run this file to start the application)
+├── src/                      # Source code directory
+│   └── main.py              # Main program file 
+├── config/                   # Configuration directory
+│   └── config.py            # API configuration file 
+├── utils/                    # Utility modules directory
+│   ├── api_client.py        # API client module
+│   ├── label_mapping.py     # Chinese-English label mapping
+│   ├── image_annotator.py   # Image annotation module
+│   ├── font_manager.py      # Font management module
+│   └── fonts/               # Font files directory
+│       └── simhei.ttf       # SimHei font file for Chinese text rendering
+├── output/                   # Output directory (annotated images are saved here)
+├── requirements.txt          # Dependency package list
+└── README.md                # Project documentation 
 ```
 
 ### File Description
 
-| File                  | Description                                                                           |
-| --------------------- | ------------------------------------------------------------------------------------- |
-| `main.py`           | Core code file, contains `ImageDetectionAPI` class and interactive main function    |
-| `config.py`         | API configuration file (needs to be copied from `config.example.py` and configured) |
-| `config.example.py` | Configuration file template                                                           |
-| `requirements.txt`  | Python dependency package list                                                        |
-| `README.md`         | Project documentation                                                                 |
+| File/Directory               | Description                                                       |
+| ---------------------------- | ----------------------------------------------------------------- |
+| `run.py`                   | Entry point file, run this to start the application               |
+| `src/main.py`              | Core code file, contains main function and image processing logic |
+| `config/config.py`         | API configuration file                                           |
+| `utils/api_client.py`      | API client module for making detection requests                   |
+| `utils/label_mapping.py`   | Chinese-English label mapping dictionary                          |
+| `utils/image_annotator.py` | Image annotation module for drawing bounding boxes and labels     |
+| `utils/font_manager.py`    | Font management module for loading Chinese fonts                  |
+| `utils/fonts/simhei.ttf`   | SimHei font file for rendering Chinese text on images             |
+| `output/`                  | Directory where annotated images are saved                        |
+| `requirements.txt`         | Python dependency package list                                    |
+| `README.md`                | Project documentation                                             |
 
 ---
 
@@ -215,36 +220,19 @@ Error details: [API returned error information]
 
 ## 7. Configuration
 
-### 7.1 Pocket Ophthalmologist (POP) Image Detection API Address Configuration
+### 7.1 Dependencies
 
-The Pocket Ophthalmologist (POP) image detection API address is encapsulated in the configuration file.
+| Package Name | Version  | Purpose                             |
+| ------------ | -------- | ----------------------------------- |
+| `requests` | >=2.31.0 | For sending HTTP requests           |
+| `Pillow`   | >=10.0.0 | For image processing and annotation |
 
-**Configuration Steps:**
-
-1. Copy the configuration template file:
-
-   ```bash
-   cp config.example.py config.py
-   ```
-2. Edit the `config.py` file and set the Pocket Ophthalmologist (POP) image detection API address:
-
-   ```python
-   API_URL = "Pocket Ophthalmologist (POP) Image Detection API Address"
-   ```
-
-### 7.2 Dependencies
-
-| Package Name | Version  | Purpose                   |
-| ------------ | -------- | ------------------------- |
-| `requests` | >=2.31.0 | For sending HTTP requests |
-
-### 7.3 Important Notes
+### 7.2 Important Notes
 
 > ⚠️ **Important Notes**:
 >
-> 1. Please ensure the Pocket Ophthalmologist (POP) image detection API address is correct
-> 2. Ensure the image file path is valid
-> 3. Network connection is normal
+> 1. Ensure the image file path is valid
+> 2. Network connection is normal
 
 ---
 
@@ -252,7 +240,7 @@ The Pocket Ophthalmologist (POP) image detection API address is encapsulated in 
 
 If you have any questions, please contact us through the following methods:
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/your-username/repository-name/issues)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/huapu4/POP/issues)
 - 💬 **Discussion**: Welcome to submit Issues and Pull Requests!
 
 ---
