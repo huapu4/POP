@@ -2,8 +2,7 @@
 
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com)
-<img width="1795" height="406" alt="中山眼科中心" src="https://github.com/user-attachments/assets/d372bf50-57d5-4794-8445-68fce824fcc4" />
-
+<img width="4096" height="686" alt="ZOC_logo_" src="https://github.com/user-attachments/assets/9f99255a-328f-4187-9450-a826390e1d13" />
 
 **Homepage** | **GitHub** | **Documentation**
 
@@ -253,4 +252,5 @@ FileNotFoundError: 图片文件不存在: wrong_path.jpg
 ---
 
 **⭐ 如果这个项目对你有帮助，请给个Star支持一下！**
+
 
