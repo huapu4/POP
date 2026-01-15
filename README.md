@@ -2,7 +2,8 @@
 
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com)
-<img width="1795" height="406" alt="中山眼科中心" src="https://github.com/user-attachments/assets/c93d1b5a-805e-4399-b52c-41ac44005be8" />
+<img width="4096" height="686" alt="ZOC_logo_" src="https://github.com/user-attachments/assets/d49d2dd2-5a83-4ba7-8678-7e74a580167a" />
+
 
 **Homepage** | **GitHub** | **Documentation**
 
